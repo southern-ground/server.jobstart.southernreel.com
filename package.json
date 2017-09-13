@@ -1,0 +1,11 @@
+{
+  "name": "jobstart.southernreel.com",
+  "version": "1.0.0",
+  "description": "A web app to fascillitate creating job starts for Southern Reel.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mr. Ferris",
+  "license": "ISC"
+}

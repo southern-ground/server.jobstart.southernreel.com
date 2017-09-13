@@ -1,0 +1,522 @@
+{
+  "groups": [
+    {
+      "id": "50541",
+      "name": "Bakery",
+      "description": "",
+      "created_at": "2016-09-27T17:29:46Z",
+      "updated_at": "2016-09-27T17:46:08Z",
+      "memberships_count": 1,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "420394"
+        ]
+      }
+    },
+    {
+      "id": "50515",
+      "name": "Band",
+      "description": "",
+      "created_at": "2016-09-27T17:23:48Z",
+      "updated_at": "2016-09-27T17:44:23Z",
+      "memberships_count": 8,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "420323",
+          "420324",
+          "420319",
+          "420322",
+          "420321",
+          "420320",
+          "420326",
+          "420313"
+        ]
+      }
+    },
+    {
+      "id": "76801",
+      "name": "Camp Southern Ground",
+      "description": "",
+      "created_at": "2016-12-19T18:08:28Z",
+      "updated_at": "2016-12-19T18:09:55Z",
+      "memberships_count": 10,
+      "logo_urls": {
+        "large": "https://pingboard-production.s3.amazonaws.com/group/logos/GjB5G0u4SgarrKkoqh9j_0d7f41d190a857bada01f16abaddf1ef649b61d5f113476d15efb60e2d7ef130.jpg",
+        "medium": "https://pingboard-production.s3.amazonaws.com/group/logos/GjB5G0u4SgarrKkoqh9j_c57026d57cbcb7b9b4b01a52b319167fb234ded16925db2e69497464f8eeb35a.jpg",
+        "small": "https://pingboard-production.s3.amazonaws.com/group/logos/GjB5G0u4SgarrKkoqh9j_825e7e418dd9d06706276b34e34a49d7020044269c5d376b3ef988e8ed050358.jpg",
+        "icon": "https://pingboard-production.s3.amazonaws.com/group/logos/GjB5G0u4SgarrKkoqh9j_7a2e3a22f28114849a3377c04b37a981ca4c51b4b391141af3c375889e198d11.jpg"
+      },
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": false,
+      "links": {
+        "users": [
+          "420305",
+          "510944",
+          "420308",
+          "420307",
+          "501044",
+          "510942",
+          "420306",
+          "420309",
+          "420310",
+          "420316"
+        ]
+      }
+    },
+    {
+      "id": "146575",
+      "name": "Creative Services",
+      "description": "",
+      "created_at": "2017-06-23T14:28:39Z",
+      "updated_at": "2017-06-23T14:31:01Z",
+      "memberships_count": 9,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "420395",
+          "420377",
+          "420375",
+          "420374",
+          "420373",
+          "420372",
+          "420376",
+          "644420",
+          "420360"
+        ]
+      }
+    },
+    {
+      "id": "50543",
+      "name": "Culture Committee",
+      "description": "",
+      "created_at": "2016-09-27T17:30:35Z",
+      "updated_at": "2016-11-10T15:59:51Z",
+      "memberships_count": 0,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {}
+    },
+    {
+      "id": "133570",
+      "name": "Distillery",
+      "description": "",
+      "created_at": "2017-05-24T21:26:51Z",
+      "updated_at": "2017-07-10T18:45:01Z",
+      "memberships_count": 9,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "761614",
+          "763123",
+          "763118",
+          "763115",
+          "761575",
+          "763136",
+          "763134",
+          "763133",
+          "763132"
+        ]
+      }
+    },
+    {
+      "id": "50520",
+      "name": "Executive",
+      "description": "",
+      "created_at": "2016-09-27T17:24:41Z",
+      "updated_at": "2016-09-27T17:47:16Z",
+      "memberships_count": 3,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "410446",
+          "420358",
+          "420359"
+        ]
+      }
+    },
+    {
+      "id": "50528",
+      "name": "Finance & Accounting",
+      "description": "",
+      "created_at": "2016-09-27T17:28:00Z",
+      "updated_at": "2017-06-05T19:19:18Z",
+      "memberships_count": 11,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "736334",
+          "420369",
+          "420363",
+          "420364",
+          "420361",
+          "687772",
+          "779225",
+          "420362",
+          "420367",
+          "420368",
+          "420365"
+        ]
+      }
+    },
+    {
+      "id": "50529",
+      "name": "Front Desk",
+      "description": "",
+      "created_at": "2016-09-27T17:28:16Z",
+      "updated_at": "2017-06-12T15:27:24Z",
+      "memberships_count": 0,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "793676"
+        ]
+      }
+    },
+    {
+      "id": "50527",
+      "name": "Grind",
+      "description": "",
+      "created_at": "2016-09-27T17:27:47Z",
+      "updated_at": "2017-07-24T14:55:45Z",
+      "memberships_count": 18,
+      "logo_urls": {
+        "large": "https://pingboard-production.s3.amazonaws.com/group/logos/xGA9aTSRWoaVzx6KFyQw_0d7f41d190a857bada01f16abaddf1ef649b61d5f113476d15efb60e2d7ef130.png",
+        "medium": "https://pingboard-production.s3.amazonaws.com/group/logos/xGA9aTSRWoaVzx6KFyQw_c57026d57cbcb7b9b4b01a52b319167fb234ded16925db2e69497464f8eeb35a.png",
+        "small": "https://pingboard-production.s3.amazonaws.com/group/logos/xGA9aTSRWoaVzx6KFyQw_825e7e418dd9d06706276b34e34a49d7020044269c5d376b3ef988e8ed050358.png",
+        "icon": "https://pingboard-production.s3.amazonaws.com/group/logos/xGA9aTSRWoaVzx6KFyQw_7a2e3a22f28114849a3377c04b37a981ca4c51b4b391141af3c375889e198d11.png"
+      },
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "420382",
+          "420384",
+          "914523",
+          "684851",
+          "420519",
+          "420516",
+          "627323",
+          "420514",
+          "668922",
+          "816103",
+          "599890",
+          "599891",
+          "779225",
+          "670735",
+          "420386",
+          "420370",
+          "420414",
+          "420520",
+          "420385"
+        ]
+      }
+    },
+    {
+      "id": "50538",
+      "name": "Hide",
+      "description": "",
+      "created_at": "2016-09-27T17:29:14Z",
+      "updated_at": "2017-03-22T15:29:11Z",
+      "memberships_count": 6,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "537600",
+          "537705",
+          "599875",
+          "420389",
+          "599876",
+          "420408"
+        ]
+      }
+    },
+    {
+      "id": "50519",
+      "name": "HR",
+      "description": "",
+      "created_at": "2016-09-27T17:24:32Z",
+      "updated_at": "2016-09-27T17:47:15Z",
+      "memberships_count": 1,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "410423"
+        ]
+      }
+    },
+    {
+      "id": "50516",
+      "name": "Personal",
+      "description": "",
+      "created_at": "2016-09-27T17:23:59Z",
+      "updated_at": "2016-12-09T15:20:36Z",
+      "memberships_count": 6,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "420314",
+          "420389",
+          "420317",
+          "420345",
+          "420318",
+          "420315"
+        ]
+      }
+    },
+    {
+      "id": "50526",
+      "name": "Print & Design",
+      "description": "",
+      "created_at": "2016-09-27T17:27:32Z",
+      "updated_at": "2017-06-23T14:21:59Z",
+      "memberships_count": 9,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "420371",
+          "422225",
+          "758554",
+          "420388",
+          "420515",
+          "420512",
+          "589043",
+          "420521",
+          "420510"
+        ]
+      }
+    },
+    {
+      "id": "50539",
+      "name": "Shipping & Receiving",
+      "description": "",
+      "created_at": "2016-09-27T17:29:28Z",
+      "updated_at": "2017-07-19T20:22:20Z",
+      "memberships_count": 3,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "420397",
+          "901166",
+          "420398"
+        ]
+      }
+    },
+    {
+      "id": "50525",
+      "name": "Southern Reel",
+      "description": "",
+      "created_at": "2016-09-27T17:26:30Z",
+      "updated_at": "2017-02-08T19:33:10Z",
+      "memberships_count": 6,
+      "logo_urls": {
+        "large": "https://pingboard-production.s3.amazonaws.com/group/logos/GwXqIWTwCMwMfeSyCrkg_0d7f41d190a857bada01f16abaddf1ef649b61d5f113476d15efb60e2d7ef130.jpg",
+        "medium": "https://pingboard-production.s3.amazonaws.com/group/logos/GwXqIWTwCMwMfeSyCrkg_c57026d57cbcb7b9b4b01a52b319167fb234ded16925db2e69497464f8eeb35a.jpg",
+        "small": "https://pingboard-production.s3.amazonaws.com/group/logos/GwXqIWTwCMwMfeSyCrkg_825e7e418dd9d06706276b34e34a49d7020044269c5d376b3ef988e8ed050358.jpg",
+        "icon": "https://pingboard-production.s3.amazonaws.com/group/logos/GwXqIWTwCMwMfeSyCrkg_7a2e3a22f28114849a3377c04b37a981ca4c51b4b391141af3c375889e198d11.jpg"
+      },
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "420381",
+          "420380",
+          "574008",
+          "420378",
+          "420513",
+          "420379"
+        ]
+      }
+    },
+    {
+      "id": "50518",
+      "name": "Tour",
+      "description": "",
+      "created_at": "2016-09-27T17:24:21Z",
+      "updated_at": "2017-07-17T15:10:34Z",
+      "memberships_count": 27,
+      "logo_urls": null,
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "894547",
+          "420346",
+          "420329",
+          "420343",
+          "420342",
+          "420328",
+          "420348",
+          "420340",
+          "420339",
+          "420330",
+          "420327",
+          "420335",
+          "420355",
+          "420356",
+          "420349",
+          "420331",
+          "420336",
+          "420341",
+          "420344",
+          "420337",
+          "420338",
+          "420357",
+          "420354",
+          "420347",
+          "420334",
+          "420333",
+          "420332"
+        ]
+      }
+    },
+    {
+      "id": "50517",
+      "name": "ZB Customs",
+      "description": "",
+      "created_at": "2016-09-27T17:24:11Z",
+      "updated_at": "2017-04-25T14:49:29Z",
+      "memberships_count": 12,
+      "logo_urls": {
+        "large": "https://pingboard-production.s3.amazonaws.com/group/logos/0EggEAz2SyAvFIJr76Aq_0d7f41d190a857bada01f16abaddf1ef649b61d5f113476d15efb60e2d7ef130.jpg",
+        "medium": "https://pingboard-production.s3.amazonaws.com/group/logos/0EggEAz2SyAvFIJr76Aq_c57026d57cbcb7b9b4b01a52b319167fb234ded16925db2e69497464f8eeb35a.jpg",
+        "small": "https://pingboard-production.s3.amazonaws.com/group/logos/0EggEAz2SyAvFIJr76Aq_825e7e418dd9d06706276b34e34a49d7020044269c5d376b3ef988e8ed050358.jpg",
+        "icon": "https://pingboard-production.s3.amazonaws.com/group/logos/0EggEAz2SyAvFIJr76Aq_7a2e3a22f28114849a3377c04b37a981ca4c51b4b391141af3c375889e198d11.jpg"
+      },
+      "type": "group",
+      "custom_fields": {},
+      "visible_to_owner": true,
+      "visible_to_group": true,
+      "visible_to_other": false,
+      "editable_by_owner": true,
+      "links": {
+        "users": [
+          "420406",
+          "420396",
+          "420404",
+          "509159",
+          "420409",
+          "420410",
+          "420402",
+          "420400",
+          "420401",
+          "420407",
+          "420403",
+          "420399"
+        ]
+      }
+    }
+  ],
+  "links": {
+    "groups.users": {
+      "href": "/api/v2/users?group_id={groups.id}",
+      "type": "users"
+    }
+  },
+  "meta": {
+    "groups": {
+      "page": 1,
+      "page_size": 100,
+      "count": 18,
+      "page_count": 1,
+      "first_href": "/api/v2/groups?sort=name&type=CustomGroup",
+      "previous_href": null,
+      "next_href": null,
+      "last_href": "/api/v2/groups?sort=name&type=CustomGroup"
+    }
+  }
+}
