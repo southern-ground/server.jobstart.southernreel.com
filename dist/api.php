@@ -37,16 +37,13 @@ switch (count($params)) {
         $api->message = "Invalid request.";
         break;
     case 2:
-
-        /*
-         * Base API
+        /*         * Base API
          *
          * ex:  /department/
          *      /depasrtments/
          *      /employees/
          *      /projects/, etc.
          */
-
         $command = filter_var(array_keys($params)[1], FILTER_SANITIZE_STRING);
         switch ($command) {
             case "department":
@@ -116,18 +113,65 @@ switch (count($params)) {
                 break;
             case "employee":
                 $api->message = "Employee Detail";
-                $id = filter_var($params[$command], FILTER_SANITIZE_STRING);
-                if ($id) {
-                    $link = $api->db_connect();
-                    $query = "SELECT * FROM employees WHERE employee_id = '$id' LIMIT 1";
-                    $result = $link->query($query);
-                    if ($result->num_rows === 1) {
-                        $api->employee = $result->fetch_assoc();
-                    } else {
-                        $api->error = 400;
-                        $api->message = "No employee with ID $id";
-                    }
+                $directive = filter_var($params[$command], FILTER_SANITIZE_STRING);
+                if ($directive) {
+                    if ($directive === 'add') {
+                        if ($api->type === 'PUT') {
+                            // Get the next ID:
+                            $link = $api->db_connect();
+                            $query = "SELECT MAX(employee_id) AS employee_id FROM employees";
+                            $result = $link->query($query);
+                            $next_id = $result->fetch_assoc()['employee_id'] += 1;
+                            $api->message = $next_id;
 
+                            // Execute the Add:
+                            $headers = apache_request_headers();
+                            $fp = fopen("php://input", 'r+');
+                            $user = json_decode(stream_get_contents($fp));
+                            $query = "INSERT into employees "
+                                . "(employee_id, first_name, "
+                                . "nickname, last_name, "
+                                . "email, phone, office_phone, deleted) VALUES "
+                                . "('$next_id','$user->first_name', "
+                                . "'$user->nickname','$user->last_name', "
+                                . "'$user->email', '$user->other_phone', "
+                                . "'$user->office_phone', '')";
+                            $result = $link->query($query);
+                            if($link->affected_rows === 1){
+                                // User added successfully:
+                                // Issue the response:
+                                $api->error = 200;
+                                $api->message = "User added";
+                                $api->user_added = $link->affected_rows;
+                                $user = $api->db_connect();
+                                $link = $user->query("SELECT * FROM employees WHERE employee_id='$next_id' LIMIT 1");
+                                $api->user = $link->fetch_assoc();
+                            }else{
+                                $api->error = 400;
+                                $api->message = "Unable to add user " . $user->first_name;
+                            }
+                        } else {
+                            $api->error = 400;
+                            $api->message = "Request denied.";
+                        }
+                    } else {
+                        $link = $api->db_connect();
+                        $query = "SELECT * FROM employees WHERE employee_id = '$directive' LIMIT 1";
+                        $deptQuery = "SELECT department_assignments.department_id, departments.department_name FROM department_assignments, departments WHERE employee_id ='$directive' AND department_assignments.department_id = departments.id ORDER BY departments.department_name ASC";
+                        $result = $link->query($query);
+                        if ($result->num_rows === 1) {
+                            $api->employee = $result->fetch_assoc();
+                            // Check for department assignments:
+                            $deptResult = $link->query($deptQuery);
+                            $api->employee['departments'] = array();
+                            while ($row = $deptResult->fetch_assoc()) {
+                                array_push($api->employee['departments'], $row);
+                            }
+                        } else {
+                            $api->error = 400;
+                            $api->message = "No employee with ID $id";
+                        }
+                    }
                 } else {
                     $api->bad_query("Bad query: Employee detail");
                 }
