@@ -278,37 +278,40 @@ switch (count($params)) {
                 switch ($type) {
                     case 'job':
                         // Add a project to the mix; check for a title:
-                        if(isset($_POST['project_name'])){
+                        if (isset($_POST['project_name'])) {
                             $filtered = filter_var($_POST['project_name'], FILTER_SANITIZE_STRING);
 
-                            if(strlen($filtered) === 0){
+                            if (strlen($filtered) === 0) {
                                 // Failure; no Job title.
                                 $api->bad_query('No job title provided');
-                            }else{
+                            } else {
                                 $link = $api->db_connect();
                                 $guid = $api->GUID();
 
                                 $sql = sprintf("INSERT INTO jobs (guid,name,deleted) VALUES ('%s','%s','%s')",
                                     $guid,
-                                    mysqli_real_escape_string($link,$filtered),
+                                    mysqli_real_escape_string($link, $filtered),
                                     '0');
 
                                 $link->query($sql);
 
-                                if(mysqli_affected_rows($link)){
+                                if (mysqli_affected_rows($link)) {
                                     // Success!
                                     $api->job_id = $guid;
                                     $api->message = "Job successfully added.";
-                                }else{
+                                } else {
                                     $api->bad_query('Please try again.');
                                 }
 
                                 mysqli_close($link);
                                 $api->autofellate();
                             }
-                        }else{
+                        } else {
                             $api->message = "I need a title, don't I?";
                         }
+                        break;
+                    case 'employee':
+                        /* TODO: Migrate Employee Add to HERE. */
                         break;
                     default:
                         $api->message = "Unknown directive (" . $type . ")";
