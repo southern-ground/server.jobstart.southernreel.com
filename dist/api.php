@@ -367,10 +367,10 @@ switch (count($params)) {
 }
 
 /* free result set */
-if (isset($result)) {
+if (isset($result) && method_exists($result, 'free_result')) {
     $result->free_result();
 }
-if (isset($link)) {
+if (isset($link) && method_exists($link, 'close')) {
     $link->close();
 }
 
