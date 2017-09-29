@@ -353,6 +353,8 @@ switch (count($params)) {
 
                             $result = $link->query($query);
                             if (mysqli_affected_rows($link)) {
+                                $api->error = 200;
+                                $api->message = "Job added successfully";
                                 $api->job_id = mysqli_insert_id($link);
                             }else{
                                 $api->error = 400;
