@@ -138,16 +138,26 @@ switch (count($params)) {
                                 . "'$user->office_phone', "
                                 . "'0', '')";
                             $result = $link->query($query);
-                            if($link->affected_rows === 1){
+                            if ($link->affected_rows === 1) {
                                 // User added successfully:
-                                // Issue the response:
-                                $api->error = 200;
-                                $api->message = "User added";
-                                $api->user_added = $link->affected_rows;
-                                $user = $api->db_connect();
-                                $link = $user->query("SELECT * FROM employees WHERE employee_id='$next_id' LIMIT 1");
-                                $api->user = $link->fetch_assoc();
-                            }else{
+                                // Try to add them to the department list:
+                                $query = "INSERT into department_assignments "
+                                    . "(employee_id, department_id) VALUES "
+                                    . "('$next_id', '$user->department')";
+                                $result = $link->query($query);
+                                if ($link->affected_rows === 1) {
+                                    // Issue the response:
+                                    $api->error = 200;
+                                    $api->message = "User added";
+                                    $api->user_added = $link->affected_rows;
+                                    $user = $api->db_connect();
+                                    $link = $user->query("SELECT * FROM employees WHERE employee_id='$next_id' LIMIT 1");
+                                    $api->user = $link->fetch_assoc();
+                                } else {
+                                    $api->error = 400;
+                                    $api->message = "Unable to add department link for " . $user->first_name . " $query";
+                                }
+                            } else {
                                 $api->error = 400;
                                 $api->message = "Unable to add user " . $user->first_name;
                             }
@@ -278,40 +288,82 @@ switch (count($params)) {
                 $type = filter_var($params[$command], FILTER_SANITIZE_STRING);
                 switch ($type) {
                     case 'job':
-                        // Add a project to the mix; check for a title:
-                        if (isset($_POST['project_name'])) {
-                            $filtered = filter_var($_POST['project_name'], FILTER_SANITIZE_STRING);
+                        if ($api->type === 'PUT') {
+                            $api->message = "Add Project";
+                            $headers = apache_request_headers();
+                            $fp = fopen("php://input", 'r+');
+                            $job = json_decode(stream_get_contents($fp));
 
-                            if (strlen($filtered) === 0) {
-                                // Failure; no Job title.
-                                $api->bad_query('No job title provided');
-                            } else {
-                                $link = $api->db_connect();
-                                $guid = $api->GUID();
+                            $job_guid = $api->GUID();
+                            $job_created_date = date("Y-m-d H:i:s");
+                            $job_title = filter_var($job->job_title, FILTER_SANITIZE_STRING);
+                            $job_department = filter_var($job->creator_department, FILTER_SANITIZE_STRING);
+                            $job_due_date = filter_var($job->due_date, FILTER_SANITIZE_STRING);
+                            $job_creator_id = filter_var($job->creator_id, FILTER_SANITIZE_STRING);
+                            $job_creator_name = filter_var($job->creator_name, FILTER_SANITIZE_STRING);
 
-                                $sql = sprintf("INSERT INTO jobs (guid,name,deleted) VALUES ('%s','%s','%s')",
-                                    $guid,
-                                    mysqli_real_escape_string($link, $filtered),
-                                    '0');
+                            $job_has_creative = filter_var($job->has_creative, FILTER_SANITIZE_STRING);
+                            $job_has_photo = filter_var($job->has_photo, FILTER_SANITIZE_STRING);
+                            $job_has_pr = filter_var($job->has_pr, FILTER_SANITIZE_STRING);
+                            $job_has_social = filter_var($job->has_social, FILTER_SANITIZE_STRING);
+                            $job_has_web = filter_var($job->has_web, FILTER_SANITIZE_STRING);
 
-                                $link->query($sql);
+                            $job_deliverables = filter_var($job->job_deliverables, FILTER_SANITIZE_STRING);
+                            $job_description = filter_var($job->job_description, FILTER_SANITIZE_STRING);
+                            $job_kickoff_availability = filter_var($job->kickoff_availability, FILTER_SANITIZE_STRING);
+                            $job_other_people = filter_var($job->other_people, FILTER_SANITIZE_STRING);
 
-                                if (mysqli_affected_rows($link)) {
-                                    // Success!
-                                    $api->job_id = $guid;
-                                    $api->message = "Job successfully added.";
-                                } else {
-                                    $api->bad_query('Please try again.');
-                                }
+                            $link = $api->db_connect();
 
-                                mysqli_close($link);
-                                $api->autofellate();
+                            $query = "INSERT INTO jobs ("
+                                . "guid, "
+                                . "date_created, "
+                                . "name, "
+                                . "department_id, "
+                                . "due_date, "
+                                . "creator_id, "
+                                . "creator_name, "
+                                . "has_creative, "
+                                . "has_photo, "
+                                . "has_pr, "
+                                . "has_social, "
+                                . "has_web, "
+                                . "job_deliverables, "
+                                . "job_description, "
+                                . "kickoff_availability, "
+                                . "other_people, "
+                                . "deleted) VALUES ("
+                                . "'$job_guid', "
+                                . "'$job_created_date', "
+                                . "'$job_title', "
+                                . "'$job_department', "
+                                . "'$job_due_date', "
+                                . "'$job_creator_id', "
+                                . "'$job_creator_name', "
+                                . "'$job_has_creative', "
+                                . "'$job_has_photo', "
+                                . "'$job_has_pr', "
+                                . "'$job_has_social', "
+                                . "'$job_has_web', "
+                                . "'$job_deliverables', "
+                                . "'$job_description', "
+                                . "'$job_kickoff_availability', "
+                                . "'$job_other_people', "
+                                . "'0')";
+
+                            $result = $link->query($query);
+                            if (mysqli_affected_rows($link)) {
+                                $api->job_id = mysqli_insert_id($link);
+                            }else{
+                                $api->error = 400;
+                                $api->message = "Could not insert job start.";
                             }
                         } else {
                             $api->message = "I need a title, don't I?";
                         }
                         break;
-                    case 'employee':
+                    case
+                    'employee':
                         /* TODO: Migrate Employee Add to HERE. */
                         break;
                     default:
