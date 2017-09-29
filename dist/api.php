@@ -131,11 +131,12 @@ switch (count($params)) {
                             $query = "INSERT into employees "
                                 . "(employee_id, first_name, "
                                 . "nickname, last_name, "
-                                . "email, phone, office_phone, deleted) VALUES "
+                                . "email, phone, office_phone, admin, deleted) VALUES "
                                 . "('$next_id','$user->first_name', "
                                 . "'$user->nickname','$user->last_name', "
                                 . "'$user->email', '$user->other_phone', "
-                                . "'$user->office_phone', '')";
+                                . "'$user->office_phone', "
+                                . "'0', '')";
                             $result = $link->query($query);
                             if($link->affected_rows === 1){
                                 // User added successfully:
